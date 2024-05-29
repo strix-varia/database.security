@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Challenges with Kerberos based access to SQL Server	</title>
-	<atom:link href="/database.security/challenges-with-kerberos-based-access-to-sql-server/security/feed/" rel="self" type="application/rss+xml" />
-	<link>/database.security/challenges-with-kerberos-based-access-to-sql-server/security/</link>
+	<atom:link href="https://strix-varia.github.io/database.security/challenges-with-kerberos-based-access-to-sql-server/security/feed/" rel="self" type="application/rss+xml" />
+	<link>https://strix-varia.github.io/database.security/challenges-with-kerberos-based-access-to-sql-server/security/</link>
 	<description></description>
 	<lastBuildDate>Wed, 29 May 2024 19:10:49 +0000</lastBuildDate>
 	<sy:updatePeriod>
