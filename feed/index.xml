@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>database.security</title>
+	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Wed, 29 May 2024 19:12:30 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.5.3</generator>
+	<item>
+		<title>Challenges with Kerberos based access to SQL Server</title>
+		<link>/challenges-with-kerberos-based-access-to-sql-server/security/</link>
+		
+		<dc:creator><![CDATA[solomon]]></dc:creator>
+		<pubDate>Wed, 29 May 2024 18:34:15 +0000</pubDate>
+				<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">/?p=56</guid>
+
+					<description><![CDATA[WIP&#8230; talk about NTLM, Kerberos and Windows logins]]></description>
+										<content:encoded><![CDATA[
+<p><strong>WIP&#8230;</strong></p>
+
+
+
+<p>talk about NTLM, Kerberos and Windows logins</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>The real problem with database service accounts</title>
+		<link>/the-real-problem-with-database-service-accounts/security/</link>
+		
+		<dc:creator><![CDATA[solomon]]></dc:creator>
+		<pubDate>Wed, 29 May 2024 18:33:17 +0000</pubDate>
+				<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">/?p=54</guid>
+
+					<description><![CDATA[WIP …&#160; Inevitably all systems have service accounts from Administrator on Windows, to root on Linux, and sa on legacy databases. For most systems we’ve solved the “no shared credentials” problem, but many organizations continue to use shared or service accounts for access to databases due to their lack of user federation with a centralized [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p><strong>WIP …&nbsp;</strong></p>
+
+
+
+<p>Inevitably all systems have service accounts from Administrator on Windows, to root on Linux, and sa on legacy databases. For most systems we’ve solved the “no shared credentials” problem, but many organizations continue to use shared or service accounts for access to databases due to their lack of user federation with a centralized directory service. Adding further pain, while many databases have tried to solve the user federation issue, support is different across each platform, and still often requires database level grants placing it in the too-hard basket. This often results in data teams running their queries as a generic analyst user, or SRE’s using a generic admin account. This problem is further compounded by many business intelligence (BI) tools like Looker and Tableau which are often configured to run queries for all users using a single account, and that account having privileges to all possible data within the database which may be needed by any user. This results in over permissioned accounts, a reliance on application based controls for who can access which report, exposure of the entire dataset to report developers, and makes it almost impossible to attribute queries run against the database to an end user without trying to correlate log events. As the number of users increases the problem becomes exponentially harder to solve.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Why I like LDAP (and you should too)</title>
+		<link>/why-i-like-ldap-and-you-should-too/security/</link>
+		
+		<dc:creator><![CDATA[solomon]]></dc:creator>
+		<pubDate>Wed, 29 May 2024 18:31:24 +0000</pubDate>
+				<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">/?p=52</guid>
+
+					<description><![CDATA[20 year old SAML is great, and it’s essential for web apps where you can’t establish a direct trust between the identity service and downstream system, but truth be told, I still prefer it’s 31 year old cousin: LDAP. In an enterprise environment, in my mind, there’s three realistic options for a primary / centralized [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>20 year old SAML is great, and it’s essential for web apps where you can’t establish a direct trust between the identity service and downstream system, but truth be told, I still prefer it’s 31 year old cousin: <a href="https://docs.ldap.com/specs/rfc1487.txt">LDAP</a>.</p>
+
+
+
+<p>In an enterprise environment, in my mind, there’s three realistic options for a primary / centralized identity store: Active Directory, an open source LDAP implementation (like openldap), or a cloud based directory (eg: Microsoft Entra ID / AzureAD, Okta, Google Workspace).</p>
+
+
+
+<p>While I bias towards open source, for LDAP I’m actually a fan of Active Directory as the primary user identity store given its multi write-replica architecture. Windows and tooling has come a long way to enable deploying lightweight Windows Servers and manage them through code. As most organizations end up with a few Windows Servers, having everything centralized in one place, has a lot of appeal to me. If you’re already running a large fleet of servers, don’t have a single Windows Server, and use AWS, then a realistic option could be AWS Managed Microsoft AD. The downside of Active Directory is the LDAP interface was “<a href="https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish">extended</a>” in a way that doesn’t play nice with the standard LDAP schema.</p>
+
+
+
+<p>For organizations that have a large number of Linux servers, regardless if AD is in use, I prefer running openldap with read replicas adjacent to critical servers (eg: across co-lo sites, or in each AWS region) to ensure folks aren’t locked out of prod while someone deployed a Windows update, and I prefer to not have multiple dedicated AD servers floating around in every network segment.&nbsp;</p>
+
+
+
+<p>… but “run AD” and “have openldap for Linux” seems contradictory to having a single centralized directory for all users. While there’s some management overhead involved, in a previous role I found there’s a way to have your cake and eat it too, but there’s three problems to overcome:</p>
+
+
+
+<ol>
+<li>Determining what’s the actual source of truth directory</li>
+
+
+
+<li>Ensuring the directories are always in sync</li>
+
+
+
+<li>Password management</li>
+</ol>
+
+
+
+<p>Once settled on a source of truth (primary) directory, this can be used to regularly forcibly replicate user/group/OU objects over the other. As Active Directory has a worst case replication time of <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/determining-the-interval">15 minutes</a>, I like to run directory-directory sync operations every 10 minutes. For example if openldap is your primary directory, every 10 minutes force changes from openldap over the top of any existing user and group objects in Active Directory. To achieve this, rather than going on a vendor discovery tour, I recommend you take a look at <a href="https://lsc-project.org/">lsc</a>.&nbsp;&nbsp;</p>
+
+
+
+<p>Finally, one thing to keep in mind is we never want passwords stored using reversible encryption, so we need a way to manage passwords. While it won’t win any design awards, I like <a href="https://github.com/pwm-project/pwm">PWM</a> as it’s easy to have it simultaneously change LDAP and Active Directory passwords, and optionally extend it to handle other / legacy systems at the same time. For those worried this will break your AD forced password rotations and CTRL-ALT-DEL password resets, you’re right, but given NIST 800-63B now recommends against arbitrary password rotation intervals, pointing users to a dedicated password reset tool which can be optionally protected with MFA seems like a reasonable tradeoff to me. If you’re using Duo for MFA, I assume you’re already familiar with the <a href="https://duo.com/docs/authproxy-reference">Duo Authentication Proxy</a>.<br>If you’ve already taken the blue pill and use a cloud based directory service as your source of truth, the major ones have now implemented LDAP endpoints which you can use for user authentication, however they each have their own limitations. If you’ve not already explored these, you can find more info at: <a href="https://learn.microsoft.com/en-us/entra/architecture/auth-ldap">Microsoft</a>, <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_ldap.html">Amazon</a>, <a href="https://support.google.com/a/answer/9048516?hl=en">Google</a>, <a href="https://help.okta.com/en-us/content/topics/directory/ldap-interface-main.htm">Okta</a>, <a href="https://support.pingidentity.com/s/question/0D58Z000098VlrPSAS/ping-as-an-ldap-proxy-to-azure-ad">Ping</a>. Personally, I wouldn’t want to rely on them for production server authentication during outages, but your availability risk appetite might be greater than mine. Alternatively you may be able to setup LDAP read-replicas from your cloud directory, however I’ve never tried this myself.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>
