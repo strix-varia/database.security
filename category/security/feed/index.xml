@@ -9,8 +9,8 @@
 
 <channel>
 	<title>security &#8211; database.security</title>
-	<atom:link href="/category/security/feed/" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	<atom:link href="/database.security/category/security/feed/" rel="self" type="application/rss+xml" />
+	<link>/database.security/</link>
 	<description></description>
 	<lastBuildDate>Wed, 29 May 2024 19:12:30 +0000</lastBuildDate>
 	<language>en-US</language>
@@ -21,12 +21,12 @@
 	<generator>https://wordpress.org/?v=6.5.3</generator>
 	<item>
 		<title>Challenges with Kerberos based access to SQL Server</title>
-		<link>/challenges-with-kerberos-based-access-to-sql-server/security/</link>
+		<link>/database.security/challenges-with-kerberos-based-access-to-sql-server/security/</link>
 		
 		<dc:creator><![CDATA[solomon]]></dc:creator>
 		<pubDate>Wed, 29 May 2024 18:34:15 +0000</pubDate>
 				<category><![CDATA[security]]></category>
-		<guid isPermaLink="false">/?p=56</guid>
+		<guid isPermaLink="false">/database.security/?p=56</guid>
 
 					<description><![CDATA[WIP&#8230; talk about NTLM, Kerberos and Windows logins]]></description>
 										<content:encoded><![CDATA[
@@ -42,12 +42,12 @@
 			</item>
 		<item>
 		<title>The real problem with database service accounts</title>
-		<link>/the-real-problem-with-database-service-accounts/security/</link>
+		<link>/database.security/the-real-problem-with-database-service-accounts/security/</link>
 		
 		<dc:creator><![CDATA[solomon]]></dc:creator>
 		<pubDate>Wed, 29 May 2024 18:33:17 +0000</pubDate>
 				<category><![CDATA[security]]></category>
-		<guid isPermaLink="false">/?p=54</guid>
+		<guid isPermaLink="false">/database.security/?p=54</guid>
 
 					<description><![CDATA[WIP …&#160; Inevitably all systems have service accounts from Administrator on Windows, to root on Linux, and sa on legacy databases. For most systems we’ve solved the “no shared credentials” problem, but many organizations continue to use shared or service accounts for access to databases due to their lack of user federation with a centralized [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -63,12 +63,12 @@
 			</item>
 		<item>
 		<title>Why I like LDAP (and you should too)</title>
-		<link>/why-i-like-ldap-and-you-should-too/security/</link>
+		<link>/database.security/why-i-like-ldap-and-you-should-too/security/</link>
 		
 		<dc:creator><![CDATA[solomon]]></dc:creator>
 		<pubDate>Wed, 29 May 2024 18:31:24 +0000</pubDate>
 				<category><![CDATA[security]]></category>
-		<guid isPermaLink="false">/?p=52</guid>
+		<guid isPermaLink="false">/database.security/?p=52</guid>
 
 					<description><![CDATA[20 year old SAML is great, and it’s essential for web apps where you can’t establish a direct trust between the identity service and downstream system, but truth be told, I still prefer it’s 31 year old cousin: LDAP. In an enterprise environment, in my mind, there’s three realistic options for a primary / centralized [&#8230;]]]></description>
 										<content:encoded><![CDATA[
