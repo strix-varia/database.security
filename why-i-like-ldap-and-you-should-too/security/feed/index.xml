@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Why I like LDAP (and you should too)	</title>
-	<atom:link href="/database.security/why-i-like-ldap-and-you-should-too/security/feed/" rel="self" type="application/rss+xml" />
-	<link>/database.security/why-i-like-ldap-and-you-should-too/security/</link>
+	<atom:link href="https://strix-varia.github.io/database.security/why-i-like-ldap-and-you-should-too/security/feed/" rel="self" type="application/rss+xml" />
+	<link>https://strix-varia.github.io/database.security/why-i-like-ldap-and-you-should-too/security/</link>
 	<description></description>
 	<lastBuildDate>Wed, 29 May 2024 19:12:30 +0000</lastBuildDate>
 	<sy:updatePeriod>
